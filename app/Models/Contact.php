@@ -9,4 +9,15 @@ class Contact extends Model
 {
     /** @use HasFactory<\Database\Factories\ContactFactory> */
     use HasFactory;
+
+    protected $fillable = [
+    "name",
+    "email",
+    "phone"
+    ];
+
+    public function setPhoneAttribute($value)
+        {
+            $this->attributes['phone'] = preg_replace('/\D/', '', $value);
+        }
 }

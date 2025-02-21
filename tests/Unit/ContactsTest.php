@@ -7,8 +7,9 @@ use Illuminate\Foundation\Testing\WithFaker;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-class CreateContactsTest extends TestCase
+class ContactsTest extends TestCase
 {
+    use RefreshDatabase;
     #[Test]
     public function it_should_be_able_to_create_a_new_contact(): void
     {
@@ -33,7 +34,7 @@ class CreateContactsTest extends TestCase
     public function it_should_validate_information(): void
     {
         $data = [
-            'name' => 'ro',
+            'name' => ' ro',
             'email' => 'email-errado@',
             'phone' => '419'
         ];
